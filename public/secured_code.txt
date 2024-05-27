@@ -1,0 +1,14 @@
+Place the below code in the index action of ToDosController.
+
+
+def index
+  @to_dos = ToDo.all
+  to_do = params[:to_do][:query] if params.include?('to_do')
+
+  if to_do && !to_do.empty?
+    @to_dos = ToDo.where(name: params[:to_do][:query], user_id: current_user.id)
+  else
+    @to_dos = ToDo.where(user_id: current_user.id)
+  end
+
+end

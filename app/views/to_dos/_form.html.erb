@@ -1,0 +1,33 @@
+<%= form_with(model: to_do) do |form| %>
+  <% if to_do.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(to_do.errors.count, "error") %> prohibited this to_do from being saved:</h2>
+
+      <ul>
+        <% to_do.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :remarks, style: "display: block" %>
+    <%= form.text_field :remarks %>
+  </div>
+
+  <div>
+    <%= form.label :date_to_be_completed, style: "display: block" %>
+    <%= form.datetime_field :date_to_be_completed %>
+  </div>
+
+  <div class="mt-6 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold.hover:text-white py-2 pl-6 pr-32 border border-orange-500 hover:border-transparent rounded w-24 text-center">
+    <%= form.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,27 @@
+#   gem install postgresql
+#
+#   gem "postgresql"
+#
+#   gem install postgresql
+#
+#   gem "postgresql"
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: sql_injection_dev
+
+test:
+  <<: *default
+  database: sql_injection_test
+
+production:
+  <<: *default
+  database: sql_injection_prod

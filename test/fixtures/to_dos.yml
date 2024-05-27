@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  remarks: MyString
+  date_to_be_completed: 2022-08-18 15:43:23
+  private: false
+
+two:
+  name: MyString
+  remarks: MyString
+  date_to_be_completed: 2022-08-18 15:43:23
+  private: false

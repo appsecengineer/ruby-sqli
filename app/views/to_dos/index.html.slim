@@ -1,0 +1,30 @@
+.p-10.w-full
+  .flex.justify-between
+    = form_tag to_dos_path, method: :get do
+      = text_field_tag name="to_do[query]", '', size:70, class: "border rounded"
+      = submit_tag 'Filter', class: " ml-3 actions bg-transparent text-orange-700 font-semibold py-2 px-4 border border-orange-500 rounded w-24 text-center hover:shadow-lg hover:cursor-pointer"
+
+    .bg-transparent.hover:bg-orange-500.text-orange-700.font-semibold.hover:text-white.py-2.px-4.border.border-orange-500.hover:border-transparent.rounded.text-center.hover:cursor-pointer
+      = link_to "New to do", new_to_do_path
+
+  .overflow-x-auto.relative.shadow-md.sm:rounded-lg.w-full.mt-10
+
+    table.w-full.text-sm.text-left.text-gray-500.dark:text-gray-400
+      thead.text-xs.text-gray-700.uppercase.bg-gray-50.dark:bg-gray-700.dark:text-gray-400
+        tr
+          th.py-3.px-6 scope="col"
+            | Name
+          th.py-3.px-6 scope="col"
+            | Remarks
+          th.py-3.px-6 scope="col"
+            | Date to be completed
+
+      tbody
+        - @to_dos.each do |todo|
+          tr.bg-white.border-b.dark:bg-gray-800.dark:border-gray-700.hover:bg-gray-50.dark:hover:bg-gray-600
+            th.py-4.px-6.font-medium.text-gray-900.whitespace-nowrap.dark:text-white scope="row"
+              = todo.name
+            td.py-4.px-6
+              = todo.remarks
+            td.py-4.px-6
+              = todo.date_to_be_completed

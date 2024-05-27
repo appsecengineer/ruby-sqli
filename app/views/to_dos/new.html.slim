@@ -1,0 +1,8 @@
+.flex.flex-col
+  .mb-4.text-4xl.font-extrabold.tracking-tight.leading-none.text-gray-900.md:text-5xl.lg:text-6xl.dark:text-white
+    New Create ToDO
+
+  = render 'form', to_do: @to_do
+
+  .mt-5
+    = link_to "Back to ToDO", to_dos_path
